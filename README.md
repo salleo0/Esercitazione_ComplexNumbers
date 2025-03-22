@@ -14,15 +14,15 @@ per T = float e T = double.
 Tale classe template deve:
 - Avere un costruttore di default
 - Avere un costruttore user-defined per l’inizializzazione di parte reale
-ed immaginaria 
+  ed immaginaria 
 - Avere metodi che restituiscano il coniugato, la parte reale e la parte
-immaginaria 
-- Fornire un overload dell’operatore << per stampare il numero comp-
-lesso. Se per esempio a = 1 e b = 2, dev’essere stampato 1+2i, mentre
-se b = −2 dev’essere stampato 1-2i. 
+  immaginaria 
+- Fornire un overload dell’operatore << per stampare il numero complesso.
+  Se per esempio a = 1 e b = 2, dev’essere stampato 1+2i, mentre
+  se b = −2 dev’essere stampato 1-2i. 
 - Fornire un overload degli operatori += e +. 
 - Fornire un overload degli operatori *= e *.
 - Opzionale: in modo simile a quanto fatto in classe nel caso di rational,
-utilizzare i concept per vincolare T ad essere un tipo floating poing.
-Verificare su https://en.cppreference.com/w/cpp/header/concepts
-qual’e' il concept da utilizzare a tal scopo.
+  utilizzare i concept per vincolare T ad essere un tipo floating poing.
+  Verificare su https://en.cppreference.com/w/cpp/header/concepts
+  qual e' il concept da utilizzare a tal scopo.
