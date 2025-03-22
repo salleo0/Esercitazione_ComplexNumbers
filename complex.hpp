@@ -16,7 +16,7 @@ public:
 	explicit complex_number(I n)
 		: a_real(n), b_imm(0)
 	{
-		std::cout<<"converting constructor called" << std:endl;
+		std::cout<<"converting constructor called" << std::endl;
 	}
 	
 	/* user-defined constructor: 2 parameters */
@@ -35,7 +35,7 @@ public:
 	}
 	
 	/* return the conjugate complex number */
-	complex_number conjugate(const rational& other) {
+	complex_number conjugate(const complex_number& other) {
 		return complex_number(other.real(), -other.immaginary());
 	}
 	
@@ -56,7 +56,10 @@ public:
 /* overload of <<, to print complex numbers in the form a+ib */
 template<typename I>
 std::ostream& operator<<(std::ostream& os, const complex_number<I>& z) {
-	if (z.immaginary() != 0)
+	if (z.immaginary == 1) 
+		os << z.real() << "+i";
+	else if (z.immaginary() != 0)
+		
 		os << z.real() << "+i" << z.immaginary();
 	else
 		os << z.real();
