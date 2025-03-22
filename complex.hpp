@@ -41,6 +41,15 @@ public:
 	}
 	
 	/* define the += operator between complex numbers */
+	complex_number& operator+=(const complex_number& other) {
+		I a = real();
+		I b = immaginary();
+		I c = other.real();
+		I d = other.immaginary();
+		real() = a + c;
+		immaginary() = b + d;
+		return *this;
+	}
 	
 	/* define the + operator between complex numbers */
 	
@@ -54,7 +63,7 @@ public:
 	
 };
 
-/* overload of <<, to print complex numbers in the form a+ib */
+/* overload of <<, to print complex numbers in the form a+bi */
 template<typename I>
 std::ostream& operator<<(std::ostream& os, const complex_number<I>& z) {
 	os << z.real();
