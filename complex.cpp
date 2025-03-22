@@ -46,5 +46,10 @@ int main(void) {
 	 * one I on the left works */
 	std::cout << "(" << z3 << ")" << "*(" << i << ") = " << z3*i << std::endl;
 	
+	/* check commutativity of + and * */
+	std::cout << std::endl << "---COMMUTATIVITY---" << std::endl;
+	std::cout << i << "+" << "(" << z1 << ") = " << i + z1 << std::endl;
+	std::cout << i << "*" << "(" << z1 << ") = " << i * z1 << std::endl;
+	
 	return 0;
 }

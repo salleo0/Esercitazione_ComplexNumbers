@@ -53,9 +53,9 @@ public:
 	
 	/* define the + operator between complex numbers */
 	complex_number operator+(const complex_number& other) const {
-		complex_number com = *this;
-		com += other;
-		return com;
+		complex_number z= *this;
+		z+= other;
+		return z;
 	}
 	
 	/* define the += operator between a complex number on the left 
@@ -70,9 +70,9 @@ public:
 	 * and an I on the right
 	 */
 	complex_number operator+(const I& other) const {
-		complex_number com = *this;
-		com += other;
-		return com;
+		complex_number z= *this;
+		z+= other;
+		return z;
 	}
 	
 	/* define the *= operator betweeen complex numbers */
@@ -88,9 +88,9 @@ public:
 	
 	/* define the * operator between complex numbers */
 	complex_number operator*(const complex_number& other) const {
-		complex_number com = *this;
-		com *= other;
-		return com;
+		complex_number z = *this;
+		z *= other;
+		return z;
 	}
 	
 	/* define the *= operator between a complex number on the left 
@@ -106,12 +106,23 @@ public:
 	 * and an I on the right
 	 */
 	complex_number operator*(const I& other) const {
-		complex_number com = *this;
-		com *= other;
-		return com;
+		complex_number z = *this;
+		z *= other;
+		return z;
 	}
 	
 };
+
+/* commutativity of + and * */
+template<typename I>
+complex_number<I> operator+(const I& i, const complex_number<I>& z) {
+	return z + i;
+}
+
+template<typename I>
+complex_number<I> operator*(const I& i, const complex_number<I>& z) {
+	return z * i;
+}
 
 /* overload of <<, to print complex numbers in the form a+bi */
 template<typename I>
