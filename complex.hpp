@@ -75,6 +75,42 @@ public:
 		return com;
 	}
 	
+	/* define the *= operator betweeen complex numbers */
+	complex_number& operator*=(const complex_number& other) {
+		I a = a_real;
+		I b = b_imm;
+		I c = other.a_real;
+		I d = other.b_imm;
+		a_real = a*c - b*d;
+		b_imm = a*d + b*c;
+		return *this;
+	}
+	
+	/* define the * operator between complex numbers */
+	complex_number operator*(const complex_number& other) const {
+		complex_number com = *this;
+		com *= other;
+		return com;
+	}
+	
+	/* define the *= operator between a complex number on the left 
+	 * and an I on the right
+	 */
+	complex_number& operator*=(const I& other) {
+		a_real *= other;
+		b_imm *= other;
+		return *this;
+	}
+	
+	/* define the * operator between a complex number on the left 
+	 * and an I on the right
+	 */
+	complex_number operator*(const I& other) const {
+		complex_number com = *this;
+		com *= other;
+		return com;
+	}
+	
 };
 
 /* overload of <<, to print complex numbers in the form a+bi */

@@ -34,11 +34,17 @@ int main(void) {
 	std::cout << "(" << z3 << ")" << "+(" << z4 << ") = " << z3+z4 << std::endl;
 	
 	/* check if the overload of + between one complex number on the right and 
-	 * one I on the left works 
-	 */
+	 * one I on the left works */
 	float i = -10;
 	std::cout << "(" << z3 << ")" << std::showpos << i << " = " << std::noshowpos << z3 + i << std::endl;
 	
+	/* chech if the overload of * between two complex numbers works */
+	std::cout << std::endl << "---OVERLOAD OF *---" << std::endl; 
+	std::cout << "(" << z3 << ")" << "*(" << z4 << ") = " << z3*z4 << std::endl;
+	
+	/* check if the overload of + between one complex number on the right and 
+	 * one I on the left works */
+	std::cout << "(" << z3 << ")" << "*(" << i << ") = " << z3*i << std::endl;
 	
 	return 0;
 }
