@@ -23,4 +23,32 @@ public:
 	complex_number(I n, I m)
 		: a_real(n), b_imm(m)
 	{}
+	
+	/* return the real part */
+	I real(void) const {
+		return a_real;
+	}
+	
+	/* return the immaginary part */
+	I immaginary(void) const {
+		return b_imm;
+	}
+	
+	/* return the conjugate complex number */
+	complex_number conjugate(const rational& other) {
+		return complex_number(other.real(), -other.immaginary());
+	}
+	
+	/* define the += operator between complex numbers */
+	
+	/* define the + operator between complex numbers */
+	
+	/* define the += operator between a complex number on the left 
+	 * and an I on the right
+	 */
+	
+	/* define the + operator between a complex number on the left 
+	 * and an I on the right
+	 */
+	
 };
