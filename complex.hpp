@@ -52,3 +52,14 @@ public:
 	 */
 	
 };
+
+/* overload of <<, to print complex numbers in the form a+ib */
+template<typename I>
+std::ostream& operator<<(std::ostream& os, const complex_number<I>& z) {
+	if (z.immaginary() != 0)
+		os << z.real() << "+i" << z.immaginary();
+	else
+		os << z.real();
+	
+	return os;
+}
