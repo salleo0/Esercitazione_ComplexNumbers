@@ -37,7 +37,7 @@ public:
 	/* return the conjugate complex number */
 	complex_number conjugate(void) const {
 		complex_number z = *this;
-		return complex_number(z.real(), -z.immaginary());
+		return complex_number(z.real(), - z.immaginary());
 	}
 	
 	/* define the += operator between complex numbers */
@@ -57,13 +57,19 @@ public:
 /* overload of <<, to print complex numbers in the form a+ib */
 template<typename I>
 std::ostream& operator<<(std::ostream& os, const complex_number<I>& z) {
-	if (z.immaginary() == 1) 
-		os << z.real() << "+i";
-	else if (z.immaginary() != 0)
-		
-		os << z.real() << "+i" << z.immaginary();
-	else
-		os << z.real();
-	
+	os << z.real();
+	switch (z.immaginary()) {
+		case 0:
+			break;
+		case 1:
+			os << "+i";
+			break;
+		case -1:
+			os << "-i";
+			break;
+		default:
+			os << std::showpos << z.immaginary() << "i" << std::noshowpos;
+			break;
+	}
 	return os;
 }

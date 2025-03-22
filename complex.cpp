@@ -1,10 +1,11 @@
 #include <iostream>
+#include <sstream>
 #include "complex.hpp"
 
 int main(void) {
 	using complex = complex_number<int>;
 	/* check if both user-defined constructor work */
-	std::cout << "---CONSTRUCTORS---" << std::endl;
+	std::cout << std::endl << "---CONSTRUCTORS---" << std::endl;
 	complex z1(1,1);
 	std::cout << "The complex number equal to 1+i has been defined" << std::endl;
 	complex z2(5);
