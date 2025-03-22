@@ -1,7 +1,7 @@
 #pragma once
 
-/* a class modelling complex numbers */
-template<typename I> requires std::integral<I> || std::floating_point<I>
+/* a class modelling complex numbers a+bi*/
+template<typename I> requires std::floating_point<I>
 class complex_number {
 	/* private members */
 	I a_real, b_imm;
@@ -37,29 +37,43 @@ public:
 	/* return the conjugate complex number */
 	complex_number conjugate(void) const {
 		complex_number z = *this;
-		return complex_number(z.real(), - z.immaginary());
+		return complex_number(z.a_real, - z.b_imm);
 	}
 	
 	/* define the += operator between complex numbers */
 	complex_number& operator+=(const complex_number& other) {
-		I a = real();
-		I b = immaginary();
-		I c = other.real();
-		I d = other.immaginary();
-		real() = a + c;
-		immaginary() = b + d;
+		I a = a_real;
+		I b = b_imm;
+		I c = other.a_real;
+		I d = other.b_imm;
+		a_real = a + c;
+		b_imm = b + d;
 		return *this;
 	}
 	
 	/* define the + operator between complex numbers */
+	complex_number operator+(const complex_number& other) const {
+		complex_number com = *this;
+		com += other;
+		return com;
+	}
 	
 	/* define the += operator between a complex number on the left 
 	 * and an I on the right
 	 */
+	complex_number& operator+=(const I& other) {
+		a_real += other;
+		return *this;
+	}
 	
 	/* define the + operator between a complex number on the left 
 	 * and an I on the right
 	 */
+	complex_number operator+(const I& other) const {
+		complex_number com = *this;
+		com += other;
+		return com;
+	}
 	
 };
 
@@ -67,18 +81,14 @@ public:
 template<typename I>
 std::ostream& operator<<(std::ostream& os, const complex_number<I>& z) {
 	os << z.real();
-	switch (z.immaginary()) {
-		case 0:
-			break;
-		case 1:
+	
+	if (z.immaginary() != 0) {
+		if (z.immaginary() == 1) 
 			os << "+i";
-			break;
-		case -1:
+		else if (z.immaginary() == -1)
 			os << "-i";
-			break;
-		default:
+		else
 			os << std::showpos << z.immaginary() << "i" << std::noshowpos;
-			break;
 	}
 	return os;
 }

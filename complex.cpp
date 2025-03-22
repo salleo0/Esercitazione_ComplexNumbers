@@ -3,7 +3,8 @@
 #include "complex.hpp"
 
 int main(void) {
-	using complex = complex_number<int>;
+	using complex = complex_number<float>;
+	
 	/* check if both user-defined constructor work */
 	std::cout << std::endl << "---CONSTRUCTORS---" << std::endl;
 	complex z1(1,1);
@@ -25,5 +26,19 @@ int main(void) {
 	std::cout << std::endl << "---CONJUGATE---" << std::endl;
 	std::cout << "Conjugate of " << z1 << ": " << z1.conjugate() << std::endl;
 	std::cout << "Conjugate of " << z2 << ": " << z2.conjugate() << std::endl;
+	
+	/* check if the overload of + between two complex numbers works */
+	std::cout << std::endl << "---OVERLOAD OF +---" << std::endl; 
+	complex z3(5, -6);
+	complex z4(-1,7);
+	std::cout << "(" << z3 << ")" << "+(" << z4 << ") = " << z3+z4 << std::endl;
+	
+	/* check if the overload of + between one complex number on the right and 
+	 * one I on the left works 
+	 */
+	float i = -10;
+	std::cout << "(" << z3 << ")" << std::showpos << i << " = " << std::noshowpos << z3 + i << std::endl;
+	
+	
 	return 0;
 }
